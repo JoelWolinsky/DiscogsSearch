@@ -1,4 +1,4 @@
-import { Artist } from "../../api/discogs";
+import { Artist } from "../../../api/discogs";
 
 interface ResultsDropDownProps {
   results: Artist[];

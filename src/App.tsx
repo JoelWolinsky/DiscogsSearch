@@ -1,5 +1,5 @@
 import "./App.css";
-import SearchBar from "./components/SearchBar/SearchBar";
+import ArtistSearch from "./components/ArtistSearch/ArtistSearch";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div>
-        <SearchBar />
+        <ArtistSearch />
       </div>
     </QueryClientProvider>
   );
