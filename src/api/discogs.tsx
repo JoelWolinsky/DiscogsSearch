@@ -12,7 +12,6 @@ export interface Artist {
 export const searchArtists = async (
   searchString: string
 ): Promise<Artist[]> => {
-  console.log("api key: ", API_KEY);
   const response = await fetch(
     `https://api.discogs.com/database/search?key=${API_KEY}&secret=${API_SECRET}&q=${searchString}&type=artist&page=1&per_page=10`
   );
