@@ -9,11 +9,7 @@ import "./ArtistSearch.scss";
 const ArtistSearch = () => {
   const [searchValue, setSearchValue] = useState("");
 
-  const {
-    data: results,
-    isLoading,
-    isError,
-  } = useQuery<Artist[], Error>(
+  const { data: results } = useQuery<Artist[], Error>(
     ["search", searchValue],
     () => searchArtists(searchValue),
     {
