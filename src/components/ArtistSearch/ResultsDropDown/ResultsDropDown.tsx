@@ -1,4 +1,5 @@
 import { Artist } from "../../../api/discogs";
+import "./ResultsDropDown.scss";
 
 interface ResultsDropDownProps {
   results: Artist[];
@@ -9,14 +10,14 @@ interface ResultsDropDownProps {
 const ResultsDropDown = (props: ResultsDropDownProps) => {
   return (
     <div className="results-dropdown">
-      {props.results.map((result) => (
-        <div
-          key={result.id}
+      {props.results.map((artist) => (
+        <button
+          key={artist.id}
           className="result"
-          onClick={() => props.onSelect(result)}
+          onClick={() => props.onSelect(artist.id)}
         >
-          {result.title}
-        </div>
+          <p className="result-name">{artist.title}</p>
+        </button>
       ))}
     </div>
   );
