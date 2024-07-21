@@ -62,11 +62,17 @@ const ArtistReleases = (props: ArtistReleasesProps) => {
           releasesResponse?.releases &&
           releasesResponse.releases.map((release: Release) => (
             <button
-              className="row"
-              onClick={() => navigateToReleases(release.main_release)}
+              className="release"
+              onClick={() =>
+                navigateToReleases(release.main_release ?? release.id)
+              }
               key={release.id}
             >
-              <p>{release.title}</p>
+              <p className="p title">{release.title} </p>
+              <p className="p">
+                {release.year}
+                {release.format && ` - ${release.format}`}
+              </p>
             </button>
           ))
         )}

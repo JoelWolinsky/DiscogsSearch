@@ -1,43 +1,49 @@
 import { useQuery } from "react-query";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ReleaseDetails, Track, getReleaseTracks } from "../../api/discogs";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import "./ReleasePage.scss";
 
-const Release = () => {
+const ReleasePage = () => {
   const navigate = useNavigate();
-  let location = useLocation();
+  let { releaseId } = useParams();
 
-  const { data: releaseTracks, isFetching } = useQuery<ReleaseDetails, Error>(
-    ["releaseTrack", location.state.id],
-    () => getReleaseTracks(location.state.id),
+  const { data: release, isFetching } = useQuery<ReleaseDetails, Error>(
+    ["releaseTrack", releaseId],
+    () => getReleaseTracks(Number(releaseId)),
     {
-      enabled: !!location.state.id,
+      enabled: !!releaseId,
     }
   );
 
   const goBack = () => {
     navigate(-1);
   };
-  console.log("location", location);
+
   return (
-    <div>
+    <div className="release-page">
       <button onClick={() => goBack()}>back</button>
-      <p>Release</p>
-      <p>{location.state.id}</p>
-      {isFetching ? (
+      {isFetching || !release ? (
         <LoadingSpinner />
       ) : (
-        releaseTracks?.tracklist &&
-        releaseTracks.tracklist.map((track: Track) => (
-          <button
-            className="row"
-            // onClick={() => navigateToReleases(release.id)}
-          >
-            <p>{track.title}</p>
-          </button>
-        ))
+        <>
+          <p className="h1">{release.title}</p>
+          <p className="h2">{release.artists_sort}</p>
+          <p className="h3">{release.community.have} owned</p>
+
+          <div className="track-list">
+            {release.tracklist.map((track: Track) => (
+              <div className="track">
+                <p>{track.position}</p>
+
+                <p>{track.title}</p>
+                <p className="duration">{track.duration}</p>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
 };
-export default Release;
+export default ReleasePage;

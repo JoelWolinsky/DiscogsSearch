@@ -4,21 +4,27 @@
   margin-right: auto;
 
   .release-table {
-    .row {
-      background-color: rgb(74, 74, 122);
+    display: flex;
+    flex-direction: column;
+
+    .release {
       margin: 0.1em;
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        font-weight: bold;
+      }
     }
+
     .pagination {
       display: flex;
       margin-left: auto;
+      margin-top: 10px;
 
       .back-button {
         margin-left: auto;
         margin-right: 10px;
-      }
-
-      .foward-button {
-        // margin-left: 100px;
       }
     }
   }

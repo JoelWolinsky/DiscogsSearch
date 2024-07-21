@@ -2,14 +2,26 @@
   font-size: 5em;
   font-weight: 500;
 
-  margin-top: 0.5em !important;
-  margin-bottom: 0.5em !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.1em !important;
 }
 
 .h2 {
   font-size: 2em;
-  font-weight: 500;
+  font-weight: 700;
 
-  margin-top: 0.5em !important;
-  margin-bottom: 0.5em !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.1em !important;
+}
+
+.h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+
+  margin-top: 0 !important;
+  margin-bottom: 0.1em !important;
+}
+
+.p {
+  margin: 0.25em;
 }

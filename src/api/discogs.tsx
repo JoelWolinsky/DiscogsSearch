@@ -25,7 +25,7 @@ export type Release = {
   main_release: number;
   title: string;
   year: number;
-  // todo stats
+  format: string;
 };
 
 export type pagination = {
@@ -42,6 +42,7 @@ export type ReleaseDetails = {
   resource_url: string;
   uri: string;
   artists: Artist[];
+  artists_sort: string;
   title: string;
   country: string;
   tracklist: Track[];
@@ -118,6 +119,5 @@ export const getReleaseTracks = async (
 ): Promise<ReleaseDetails> => {
   const response = await fetch(`https://api.discogs.com/releases/${releaseId}`);
   const data = await response.json();
-  console.log("Release tracks", data);
   return data;
 };

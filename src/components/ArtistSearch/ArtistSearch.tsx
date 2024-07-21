@@ -13,9 +13,7 @@ const ArtistSearch = () => {
   const [showSearchDropDown, setShowSearchDropDown] = useState<boolean>(false);
 
   const navigateToArtist = (artistId: number, coverImage: string) => {
-    navigate(`/artist/${artistId}`, {
-      state: { id: artistId, coverImage: coverImage },
-    });
+    navigate(`/artist/${artistId}`, { state: { coverImage: coverImage } });
   };
 
   const { data: results } = useQuery<Artist[], Error>(
@@ -42,7 +40,7 @@ const ArtistSearch = () => {
         {showSearchDropDown && (
           <ResultsDropDown
             results={results || []}
-            searchValue="searchValue"
+            searchValue={searchValue}
             onSelect={(artistId, coverImage) => {
               navigateToArtist(artistId, coverImage);
               setShowSearchDropDown(false);
