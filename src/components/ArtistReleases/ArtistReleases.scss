@@ -3,6 +3,10 @@
   margin-left: auto;
   margin-right: auto;
 
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+
   .release-table {
     display: flex;
     flex-direction: column;
