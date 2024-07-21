@@ -1,0 +1,13 @@
+.artist-info {
+  display: flex;
+
+  .cover-image {
+    width: 8em;
+    height: 8em;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+  }
+}

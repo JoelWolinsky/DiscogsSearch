@@ -4,7 +4,7 @@ import "./ResultsDropDown.scss";
 interface ResultsDropDownProps {
   results: Artist[];
   searchValue: string;
-  onSelect: (result: any) => void;
+  onSelect: (id: number, coverImage: string) => void;
 }
 
 const ResultsDropDown = (props: ResultsDropDownProps) => {
@@ -14,7 +14,7 @@ const ResultsDropDown = (props: ResultsDropDownProps) => {
         <button
           key={artist.id}
           className="result"
-          onClick={() => props.onSelect(artist.id)}
+          onClick={() => props.onSelect(artist.id, artist.cover_image)}
         >
           <p className="result-name">{artist.title}</p>
         </button>

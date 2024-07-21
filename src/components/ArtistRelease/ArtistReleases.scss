@@ -1,0 +1,25 @@
+.artist-releases {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .release-table {
+    .row {
+      background-color: rgb(74, 74, 122);
+      margin: 0.1em;
+    }
+    .pagination {
+      display: flex;
+      margin-left: auto;
+
+      .back-button {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+
+      .foward-button {
+        // margin-left: 100px;
+      }
+    }
+  }
+}

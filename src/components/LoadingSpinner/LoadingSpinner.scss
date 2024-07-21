@@ -1,0 +1,21 @@
+@import "../../assets/styles/colors.scss";
+
+.spinner {
+  width: 3em;
+  height: 3em;
+  border: 0.5em solid white;
+  border-right: 0.5em solid $background-color;
+  border-radius: 3em;
+  animation: spin 2s linear infinite;
+
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(700deg);
+  }
+}
