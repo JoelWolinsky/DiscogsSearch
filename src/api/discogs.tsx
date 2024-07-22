@@ -98,7 +98,9 @@ export const searchArtists = async (
 };
 
 export const getArtist = async (artistId: string): Promise<ArtistDetails> => {
-  const response = await fetch(`https://api.discogs.com/artists/${artistId}`);
+  const response = await fetch(
+    `https://api.discogs.com/artists/${artistId}?key=${API_KEY}&secret=${API_SECRET}&`
+  );
   const data = await response.json();
   return data;
 };
@@ -108,7 +110,7 @@ export const getArtistReleases = async (
   page: number
 ): Promise<ReleasesResponse> => {
   const response = await fetch(
-    `https://api.discogs.com/artists/${artistId}/releases?page=${page}&per_page=5`
+    `https://api.discogs.com/artists/${artistId}/releases?page=${page}&per_page=5&key=${API_KEY}&secret=${API_SECRET}&`
   );
   const data = await response.json();
   return data;
@@ -117,7 +119,9 @@ export const getArtistReleases = async (
 export const getReleaseTracks = async (
   releaseId: number
 ): Promise<ReleaseDetails> => {
-  const response = await fetch(`https://api.discogs.com/releases/${releaseId}`);
+  const response = await fetch(
+    `https://api.discogs.com/releases/${releaseId}?key=${API_KEY}&secret=${API_SECRET}&`
+  );
   const data = await response.json();
   return data;
 };
